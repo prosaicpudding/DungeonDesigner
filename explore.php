@@ -128,6 +128,7 @@
 			echo "<h3>Tutorial</h3>";
 			$d=mysqli_fetch_array(mysqli_query($con,"select * from rooms where RoomID=1"));
 			echo"<form style='border:1px solid;padding:2px;width:1000px;margin:20px;margin-left:150px;' method='post' action='explore.php'>";
+				echo "<img src='cave.png' width='50px' style='float:left;'>";
 				echo "<p align='left'>$d[1]</p>";
 				echo "<input type='hidden' name='to' value='$d[0]'>";
 				echo "<input style='position:relative;left:400px;' type='submit' name='go' value='Go!'>";
@@ -142,6 +143,7 @@
 		while ($d=mysqli_fetch_array($dungeons))
 		{
 			echo"<form style='border:1px solid;padding:2px;width:1000px;margin:20px;margin-left:150px;' method='post' action='explore.php'>";
+				echo "<img src='cave.png' width='50px' style='float:left;'>";
 				echo "<p align='left'>$d[1]</p>";
 				echo "<input type='hidden' name='to' value='$d[0]'>";
 				echo "<input style='position:relative;left:400px;' type='submit' name='go' value='Go!'>";
@@ -155,6 +157,7 @@
 		while ($d=mysqli_fetch_array($dungeons))
 		{
 			echo"<form style='border:1px solid;padding:2px;width:1000px;margin:20px;margin-left:150px;' method='post' action='explore.php'>";
+				echo "<img src='cave.png' width='50px' style='float:left;'>";
 				echo "<p align='left'>$d[1]</p>";
 				echo "<input type='hidden' name='to' value='$d[0]'>";
 				echo "<input style='position:relative;left:400px;' type='submit' name='go' value='Go!'>";
@@ -165,6 +168,7 @@
 			echo "<h3>Tutorial</h3>";
 			$d=mysqli_fetch_array(mysqli_query($con,"select * from rooms where RoomID=1"));
 			echo"<form style='border:1px solid;padding:2px;width:1000px;margin:20px;margin-left:150px;' method='post' action='explore.php'>";
+				echo "<img src='cave.png' width='50px' style='float:left;'>";
 				echo "<p align='left'>$d[1]</p>";
 				echo "<input type='hidden' name='to' value='$d[0]'>";
 				echo "<input style='position:relative;left:400px;' type='submit' name='go' value='Go!'>";

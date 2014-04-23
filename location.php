@@ -216,6 +216,10 @@
 			echo $description;
 			echo"</em>";
 			
+			if($location==0)
+				echo "<img src='Anonymous_fire.png' width='300px' style='margin-top:50px;'>";
+			
+				//echo "<img src='cave.png' width='300px'>";
 			//check which move is being used
 			if(isset($_POST['use1']))
 			{
@@ -269,7 +273,10 @@
 				$dmg=round($intdmg+$strdmg+$basedmg);
 				$newhealth=$enemy[3]-$dmg;
 				mysqli_query($con,"update currentinstancemonsters set Health = '$newhealth' where InstanceID='$target'");
-				echo"<p style='color:red;'> You used $move[1] on $class[1] $type[1]</br> for $dmg damage</p>";
+				echo"<p style='color:red'> 
+				<img src='sword.png' width='40px' style='float:left;'>
+				You used $move[1] on $class[1] $type[1]</br> for $dmg damage
+				</p>";
 
 				$enemies=mysqli_query($con,"select * from currentinstancemonsters where UserID='$UID' and Location='$location'");
 				while($enemy=mysqli_fetch_array($enemies))	
@@ -314,10 +321,17 @@
 					$newhealth=$user[5]-$dmg;
 					mysqli_query($con,"update users set Health='$newhealth' where UserID='$UID'");
 					$user=mysqli_fetch_array(mysqli_query($con,"select * from users where Username='$username'"));
-					echo"<p style='color:red;'> $class[1] $type[1] uses $move[1]</br> for $dmg damage</p>";
+
+					echo"<p style='color:red;'>
+						<img src='swordback.png' width='40px' style='float:left;'>
+						$class[1] $type[1] uses $move[1]</br> for $dmg damage
+					</p>";
 					if ($enemy[3]<=0)
 					{
-						echo"<p style='color:red;'> You have defeated $class[1] $type[1]</p>";
+						echo"<p style='color:red;margin:10px;padding:10px;'> 
+							<img src='defeat.png' width='40px' style='float:left;'>
+							You have defeated $class[1] $type[1]
+						</p>";
 						$newexp=$user[6]+$enemy[4]*10;
 						mysqli_query($con,"update users set Experience='$newexp' where UserID='$UID'");
 						mysqli_query($con,"delete from currentinstancemonsters where InstanceID='$enemy[0]'");
@@ -330,7 +344,10 @@
 							{
 								if(mysqli_fetch_array(mysqli_query($con,"select * from userknowsmove where MoveID='$mid'"))===null)
 								{
-									echo"<p style='color:red;'> You learned $move[1] from $class[1] $type[1]</p>";
+									echo"<p style='color:red; padding:10px;margin:10px;'> 
+											<img src='move.png' width='40px' style='float:left;'>
+											You learned $move[1] from $class[1] $type[1]
+										</p>";
 									mysqli_query($con,"insert into userknowsmove values ('$UID','$mid')");
 								}
 							}
@@ -347,7 +364,11 @@
 					mysqli_query($con,"update users set Level='$newlevel' where UserID='$UID'");
 					mysqli_query($con,"update users set Health='$newhealth' where UserID='$UID'");
 					$user=mysqli_fetch_array(mysqli_query($con,"select * from users where Username='$username'"));
-					echo"<p style='color:red;'> Leveled up!</p>";
+					echo"
+					<p style='color:red; padding:10px;margin:10px;'> 
+						<img src='level.png' width='40px' style='float:left;'>
+						Leveled up!
+					</p>";
 				}
 				
 				//if all monsters defeated, show loot and refresh
@@ -421,7 +442,11 @@
 							mysqli_query($con,"insert into weaponsatcamp values('$UID','$reward',1)");
 					
 					}
-					echo"<p style='color:red;'>You pick up $rewardgold gold pieces along with a $rewardname</p>";
+					echo"
+						<p style='color:red; padding:10px;margin:10px;'>
+							<img src='chest.png' width='40px' style='float:left;'>
+							You pick up $rewardgold gold pieces along with a $rewardname
+						</p>";
 				}
 				
 			}

@@ -69,6 +69,7 @@
 		while ($d=mysqli_fetch_array($dungeons))
 		{
 			echo"<form style='border:1px solid;width:1000px;padding:2px;margin:20px;margin-left:150px;' method='post' action='explore.php'>";
+				echo "<img src='cave.png' width='50px' style='float:left;'>";
 				echo "<p align='left'>$d[1]</p>";
 				echo "<input type='hidden' name='to' value='$d[0]'>";
 				echo "<input style='position:relative;left:400px;' type='submit' name='go' value='Go!'>";
