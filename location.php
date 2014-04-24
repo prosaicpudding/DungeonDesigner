@@ -105,7 +105,7 @@
 		{
 			if($type=='armor')
 			{
-				$item=mysqli_fetch_array(mysqli_query($con,"select * from armoratcamp where ArmorID='$bid'"));
+				$item=mysqli_fetch_array(mysqli_query($con,"select * from armoratcamp where ArmorID='$bid' and UserID='$UID'"));
 				if($item==null)
 					mysqli_query($con,"insert into armoratcamp values ('$UID','$bid',1)");
 				else
@@ -116,7 +116,7 @@
 			}
 			else if($type=='weapon')
 			{
-				$item=mysqli_fetch_array(mysqli_query($con,"select * from weaponsatcamp where WeaponID='$bid'"));
+				$item=mysqli_fetch_array(mysqli_query($con,"select * from weaponsatcamp where WeaponID='$bid' and UserID='$UID'"));
 				if($item==null)
 					mysqli_query($con,"insert into weaponsatcamp values ('$UID','$bid',1)");
 				else
@@ -127,7 +127,7 @@
 			}
 			else
 			{
-				$item=mysqli_fetch_array(mysqli_query($con,"select * from userinventory where ItemID='$bid'"));
+				$item=mysqli_fetch_array(mysqli_query($con,"select * from userinventory where ItemID='$bid' and UserID='$UID'"));
 				if($item==null)
 					mysqli_query($con,"insert into userinventory values ('$UID','$bid',1)");
 				else

@@ -83,7 +83,7 @@
 
 		if($m1p<0||$m2p<0||$m3p<0)
 		{ echo "<p style='color:red;'>Error: Some fields were invalid (values shouldn't be negative)</p>"; return;}
-		if($m1p+$m2p+$m3p!=100)
+		if($m1p+$m2p+$m3p!==100)
 		{ echo "<p style='color:red;'>Error: Be sure your move probabilities sum to 100</p>"; return;}
 		if($m1p<1||($m2p<1&&$m2!=='NULL')||($m3p<1&&$m3!=='NULL'))
 		{ echo "<p style='color:red;'>Error: Be sure your move probabilities are not zero</p>"; return;}
